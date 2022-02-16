@@ -30,6 +30,10 @@ export default function Complain() {
 
   useEffect(() => {
     socket = io(process.env.REACT_APP_SERVER_URL || 'http://localhost:5000', {
+      withCredentials: true,
+      extraHeaders: {
+        'dumbgram-header': 'dumbgram',
+      },
       auth: {
         token: localStorage.getItem('token'),
       },
